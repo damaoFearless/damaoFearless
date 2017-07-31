@@ -8,20 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>页面静态化 | 江东帆影~博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="大家好，这是我的写的第一个博，大家可以好好相互交流。">
+  <meta name="description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最重要的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕给学校做的一个项目中接触到的，目前有规定，往服务器部署的系统，出于安全性考虑，必须实现前后台分离，这就需要页面静态化这个技术点，最近有时间简单的了解了一下，总结如下：    接触到的新的知识点主要有webservice， 1.webservi">
 <meta name="keywords" content="webservr,xml,http">
 <meta property="og:type" content="article">
 <meta property="og:title" content="页面静态化">
-<meta property="og:url" content="http://yoursite.com/2017/07/28/my-first-blog/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/07/28/my-first-blog_page_static/index.html">
 <meta property="og:site_name" content="江东帆影~博客">
-<meta property="og:description" content="大家好，这是我的写的第一个博，大家可以好好相互交流。">
+<meta property="og:description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最重要的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕给学校做的一个项目中接触到的，目前有规定，往服务器部署的系统，出于安全性考虑，必须实现前后台分离，这就需要页面静态化这个技术点，最近有时间简单的了解了一下，总结如下：    接触到的新的知识点主要有webservice， 1.webservi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/07/img/Hydrangeas.jpg">
-<meta property="og:updated_time" content="2017-07-30T09:36:55.993Z">
+<meta property="og:updated_time" content="2017-07-31T13:19:17.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="页面静态化">
-<meta name="twitter:description" content="大家好，这是我的写的第一个博，大家可以好好相互交流。">
-<meta name="twitter:image" content="http://yoursite.com/2017/07/img/Hydrangeas.jpg">
+<meta name="twitter:description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最重要的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕给学校做的一个项目中接触到的，目前有规定，往服务器部署的系统，出于安全性考虑，必须实现前后台分离，这就需要页面静态化这个技术点，最近有时间简单的了解了一下，总结如下：    接触到的新的知识点主要有webservice， 1.webservi">
   
     <link rel="alternative" href="/atom.xml" title="江东帆影~博客" type="application/atom+xml">
   
@@ -175,7 +173,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-my-first-blog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-my-first-blog_page_static" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -187,7 +185,7 @@
   
 
         
-        <a href="/2017/07/28/my-first-blog/" class="archive-article-date">
+        <a href="/2017/07/28/my-first-blog_page_static/" class="archive-article-date">
   	<time datetime="2017-07-28T03:18:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-28</time>
 </a>
         
@@ -195,8 +193,42 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  大家好，这是我的写的第一个博，大家可以好好相互交流。<br>    <img src="../../img/Hydrangeas.jpg" alt="这是图片显示"></p>
+        <pre><code>小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最重要的科目就是语文了，很遗憾，我语文并不好。
+</code></pre><p>页面静态化这个概念是在本科毕业前夕给学校做的一个项目中接触到的，目前有规定，往服务器部署的系统，出于安全性考虑，必须实现前后台分离，这就需要页面静态化这个技术点，最近有时间简单的了解了一下，总结如下：<br>    接触到的新的知识点主要有webservice，</p>
+<pre><code>1.webservice
+理解如下：
+WebService顾名思义就是基于Web的服务。它使用HTTP+XML方式，接收和响应外部系统的某种请求。从而实现远程调用。例如我们手机app查询天气，以及打电话手机显示号码归属地，都是调用官方发布的一些信息，我们做的系统和官方发布的接口使用的很有可能并不是同一种语言， 
+一个完美的解决方法是使用HTTP协议来通信，稍微学过网络的都晓得啥意思。
+名词1：XML. Extensible Markup Language －扩展性标记语言 
+XML，用于传输格式化的数据，是Web服务的基础。
+namespace-命名空间。
+xmlns=“http://itcast.cn” 使用默认命名空间。
+xmlns:itcast=“http://itcast.cn”使用指定名称的命名空间。
 
+名词2：WSDL – WebService Description Language – Web服务描述语言。
+通过XML形式说明服务在什么地方－地址。
+通过XML形式说明服务提供什么样的方法 – 如何调用。
+
+名词3：SOAP-Simple Object Access Protocol(简单对象访问协议)
+SOAP作为一个基于XML语言的协议用于有网上传输数据。
+SOAP = 在HTTP的基础上+XML数据。
+SOAP是基于HTTP的。
+SOAP的组成如下：
+    Envelope – 必须的部分。以XML的根元素出现。
+    Headers – 可选的。
+    Body – 必须的。在body部分，包含要执行的服务器的方法。和发送到服务器的数据。
+2.3WSDL解析（摘抄任亮老师，感觉解读的不错）
+Wsdl文档从下往上读
+Types - 数据类型定义的容器，它使用某种类型系统(一般地使用XML Schema中的类型系统)。（入参和出参的数据类型） 
+ Message - 通信消息的数据结构的抽象类型化定义。使用Types所定义的类型来定义整个消息的数据结构（入参和出参）。 
+ Operation - 对服务中所支持的操作的抽象描述，一般单个Operation描述了一个访问入口的请求/响应消息对（方法）。 
+ PortType - 对于某个访问入口点类型所支持的操作的抽象集合，这些操作可以由一个或多个服务访问点来支持（服务类）。 
+Binding - 特定服务访问点与具体服务类的绑定（不看内容，看关系）。 
+Port - 定义为webservice单个服务访问点。
+
+Service- 相关服务访问点的集合。
+![这是图片显示](../img/a.png)
+</code></pre>
       
 
       
@@ -304,7 +336,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/28/my-first-blog/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/28/my-first-blog_page_static/" alt="微信分享二维码">
     </div>
 </div>
 
