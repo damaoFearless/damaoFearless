@@ -289,6 +289,8 @@ Service- 相关服务访问点的集合。
 它包含以下参数：
 a)－d参数，指定代码生成的目录。
 b)－p参数，指定生成的新的包结构。
+
+我用的是这个：
 需要说明的是，由于wsdl2java是根据jdk1.7生成的本地代码，所以，需要对生成的代码做一点点修改。
 在命令行执行：
 wsdl2java –d . http://127.0.0.1:6666/helloworld?wsdl
@@ -310,7 +312,8 @@ wsdl2java –d . http://127.0.0.1:6666/helloworld?wsdl
     &lt;servlet-name&gt;cxf&lt;/servlet-name&gt;
     &lt;url-pattern&gt;/services/*&lt;/url-pattern&gt;
 &lt;/servlet-mapping&gt;
-</code></pre><p>对外调用接口：<br>@WebService<br>public interface PageStaticDao {<br>    public List<publishingcenter>  toDetail(int id);<br> }<br>主要类有：<br>a)@WebService － 它是一个注解，用在类上指定将此类发布成一个webservice服务.<br>b)Endpoint – 此类为端点服务类，它的方法publish用于将一个已经添加了@WebService注解对象绑定到一个地址的端口上。Endpoint是jdk提供的一个专门用于发布服务的类，它的publish方法接收两个参数，一个是本地的服务地址，二是提供服务的类。它位于javax.xml.ws.*包中。<br>static Endpoint.publish(String address, Object implementor) 在给定地址处针对指定的实现者对象创建并发布端点。stop方法用于停止服务。<br>其他注意事项：<br>1)给类添加上@WebService注解后，类中所有的非静态方法都将会对外公布。不支持静态方法，final方法。<br>2)如果希望某个方法(非static,非final)不对外公开，可以在方法上添加@WebMethod(exclude=true)，阻止对外公开。<br>3)如果一个类上，被添加了@WebService注解，则必须此类至少有一个可以公开的方法，否则将会启动失败。<br>4)服务类中不能没有方法<br>5)@WebMethod(exclude=true)屏蔽方法<br>下一步操作是查看暴露接口的文件，访问<a href="http://localhost:8080/managementSystem/services/pageStatic?wsdl就可以查看" target="_blank" rel="external">http://localhost:8080/managementSystem/services/pageStatic?wsdl就可以查看</a></publishingcenter></p>
+</code></pre><p>对外调用接口：<br>@WebService<br>public interface PageStaticDao {<br>    public List<publishingcenter>  toDetail(int id);<br> }<br>    主要类有：<br>        a)@WebService － 它是一个注解，用在类上指定将此类发布成一个webservice服务.<br>        b)Endpoint – 此类为端点服务类，它的方法publish用于将一个已经添加了@WebService注解对象绑定到一个地址的端口上。Endpoint是jdk提供的一个专门用于发布服务的类，它的publish方法接收两个参数，一个是本地的服务地址，二是提供服务的类。它位于javax.xml.ws.*包中。<br>        static Endpoint.publish(String address, Object implementor) 在给定地址处针对指定的实现者对象创建并发布端点。stop方法用于停止服务。<br>        其他注意事项：<br>        1)给类添加上@WebService注解后，类中所有的非静态方法都将会对外公布。不支持静态方法，final方法。<br>        2)如果希望某个方法(非static,非final)不对外公开，可以在方法上添加@WebMethod(exclude=true)，阻止对外公开。<br>        3)如果一个类上，被添加了@WebService注解，则必须此类至少有一个可以公开的方法，否则将会启动失败。<br>        4)服务类中不能没有方法<br>        5)@WebMethod(exclude=true)屏蔽方法</publishingcenter></p>
+<p>下一步操作是查看暴露接口的文件，访问<a href="http://localhost:8080/managementSystem/services/pageStatic?wsdl就可以查看" target="_blank" rel="external">http://localhost:8080/managementSystem/services/pageStatic?wsdl就可以查看</a></p>
 <p><wsdl:definitions xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://dao.gjf.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PageStaticDaoService" targetnamespace="http://dao.gjf.com/"></wsdl:definitions></p>
 <p><wsdl:types></wsdl:types></p>
 <p><xs:schema xmlns:tns="http://dao.gjf.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementformdefault="unqualified" targetnamespace="http://dao.gjf.com/" version="1.0"></xs:schema></p>
@@ -358,7 +361,8 @@ public void ouputFile(String ftlName, String fileName, Map map) throws Exception
 }
 </code></pre><p>}</p>
 <p>将生成的html存放到一个文件夹，就可以访问了。</p>
-
+<pre><code>小结：我认为webservice实现的功能是主要是跨平台的数据传输，将服务端的功能代码片段生成客户端的代码，直接在客户端进行调用，在页面静态化的功能中，webservice起到的作用是直接在前端服务器接受服务端的数据，结合前端服务器中的页面模板生成静态页面。
+</code></pre>
       
 
       
