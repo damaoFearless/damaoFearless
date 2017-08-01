@@ -170,6 +170,68 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-a" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/01/a/">a</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/01/a/" class="archive-article-date">
+  	<time datetime="2017-08-01T05:22:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/01/a/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-my-first-blog_page_static" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -177,7 +239,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/28/my-first-blog_page_static/">页面静态化</a>
+      <a class="article-title" href="/2017/07/28/my-first-blog_page_static/">webservice+freemark实现页面静态化</a>
     </h1>
   
 
@@ -190,23 +252,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code>小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最重要的科目就是语文了，很遗憾，我语文并不好。
-</code></pre><p>页面静态化这个概念是在本科毕业前夕给学校做的一个项目中接触到的，目前有规定，往服务器部署的系统，出于安全性考虑，必须实现前后台分离，这就需要页面静态化这个技术点，最近有时间简单的了解了一下，总结如下：<br>    接触到的新的知识点主要有webservice，</p>
-<pre><code>1.webservice
-理解如下：
-WebService顾名思义就是基于Web的服务。它使用HTTP+XML方式，接收和响应外部系统的某种请求。从而实现远程调用。例如我们手机app查询天气，以及打电话手机显示号码归属地，都是调用官方发布的一些信息，我们做的系统和官方发布的接口使用的很有可能并不是同一种语言， 
-一个完美的解决方法是使用HTTP协议来通信，稍微学过网络的都晓得啥意思。
-名词1：XML. Extensible Markup Language －扩展性标记语言 
-XML，用于传输格式化的数据，是Web服务的基础。
-namespace-命名空间。
-xmlns=“http://itcast.cn” 使用默认命名空间。
-xmlns:itcast=“http://itcast.cn”使用指定名称的命名空间。
+        <pre><code>小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。
 
-名词2：WSDL – WebService Description Language – Web服务描述语言。
+页面静态化这个概念是在本科毕业前夕给学校做的一个项目中接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下：
+1.webservice
+理解如下：
+WebService顾名思义就是基于Web的服务。它使用HTTP+XML方式，接收和响应外部系统的某种请求。从而实现远程调用。例如我们手机app查询天气，以及打电话手机显示号码归属地，都是调用官方发布的一些信息，我们做的系统和官方发布的接口使用的很有可能并不是同一种语言，一个完美的解决方法是使用HTTP协议来通信，稍微学过网络的都晓得啥意思。
+
+名词：WSDL – WebService Description Language – Web服务描述语言。
 通过XML形式说明服务在什么地方－地址。
 通过XML形式说明服务提供什么样的方法 – 如何调用。
 
-名词3：SOAP-Simple Object Access Protocol(简单对象访问协议)
+名词：SOAP-Simple Object Access Protocol(简单对象访问协议)
 SOAP作为一个基于XML语言的协议用于有网上传输数据。
 SOAP = 在HTTP的基础上+XML数据。
 SOAP是基于HTTP的。
@@ -214,7 +271,7 @@ SOAP的组成如下：
     Envelope – 必须的部分。以XML的根元素出现。
     Headers – 可选的。
     Body – 必须的。在body部分，包含要执行的服务器的方法。和发送到服务器的数据。
-2.3WSDL解析（摘抄任亮老师，感觉解读的不错）
+2.WSDL解析（摘抄任亮老师，感觉解读的不错）
 Wsdl文档从下往上读
 Types - 数据类型定义的容器，它使用某种类型系统(一般地使用XML Schema中的类型系统)。（入参和出参的数据类型） 
  Message - 通信消息的数据结构的抽象类型化定义。使用Types所定义的类型来定义整个消息的数据结构（入参和出参）。 
@@ -225,7 +282,74 @@ Port - 定义为webservice单个服务访问点。
 
 Service- 相关服务访问点的集合。
 ![这是图片显示](../../img/a.png)
-</code></pre>
+
+3.FreeMark标签自己去查。
+</code></pre><p>6.wsdl2java<br>在cxf中，也提供了一个用于生成客户端调用代码的工具。它的功能就如同wsimport一样。<br>先让我们了解一下cxf的wsdl2java工具，可以生成一堆客户端调用的代码。既可以生成SOAP1.1也可以生成SOAP1.2<br>此工具位于cxf_home/bin目录下。参数与wsimport有所不同。<br>它包含以下参数：<br>a)－d参数，指定代码生成的目录。<br>b)－p参数，指定生成的新的包结构。<br>需要说明的是，由于wsdl2java是根据jdk1.7生成的本地代码，所以，需要对生成的代码做一点点修改。<br>在命令行执行：<br>    wsdl2java –d . <a href="http://127.0.0.1:6666/helloworld?wsdl" target="_blank" rel="external">http://127.0.0.1:6666/helloworld?wsdl</a><br>     配置spring+cxf：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</code></pre><beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:cxf="http://cxf.apache.org/core" xsi:schemalocation="http://www.springframework.org/schema/beans 
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+            http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd"><br>    <!-- 引入CXF Bean定义如下,早期的版本中使用 --><br>    <import resource="classpath:META-INF/cxf/cxf.xml"><br>    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"><br>    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"><br><br>    <!--address是访问地址  serviceClass调用接口 --><br>    <jaxws:server id="pageStatic" address="/pageStatic" serviceclass="com.gjf.dao.PageStaticDao"><br>    <!--     服务接口的实现类 --><br>        <jaxws:servicebean><br>            <bean class="com.gjf.dao.PageStaticDaoImpl"></bean><br>        </jaxws:servicebean><br>        <jaxws:ininterceptors><br>            <bean class="org.apache.cxf.interceptor.LoggingInInterceptor"></bean><br>        </jaxws:ininterceptors><br>        <jaxws:outinterceptors><br>            <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"></bean><br>        </jaxws:outinterceptors><br>    </jaxws:server><br></import></import></import></beans>
+
+<p>web.xml配置文件：</p>
+<pre><code>   &lt;servlet&gt;
+    &lt;servlet-name&gt;cxf&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.apache.cxf.transport.servlet.CXFServlet&lt;/servlet-class&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;cxf&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/services/*&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre><p>对外调用接口：<br>@WebService<br>public interface PageStaticDao {<br>    public List<publishingcenter>  toDetail(int id);<br> }<br>主要类有：<br>a)@WebService － 它是一个注解，用在类上指定将此类发布成一个webservice服务.<br>b)Endpoint – 此类为端点服务类，它的方法publish用于将一个已经添加了@WebService注解对象绑定到一个地址的端口上。Endpoint是jdk提供的一个专门用于发布服务的类，它的publish方法接收两个参数，一个是本地的服务地址，二是提供服务的类。它位于javax.xml.ws.*包中。<br>static Endpoint.publish(String address, Object implementor) 在给定地址处针对指定的实现者对象创建并发布端点。stop方法用于停止服务。<br>其他注意事项：<br>1)给类添加上@WebService注解后，类中所有的非静态方法都将会对外公布。不支持静态方法，final方法。<br>2)如果希望某个方法(非static,非final)不对外公开，可以在方法上添加@WebMethod(exclude=true)，阻止对外公开。<br>3)如果一个类上，被添加了@WebService注解，则必须此类至少有一个可以公开的方法，否则将会启动失败。<br>4)服务类中不能没有方法<br>5)@WebMethod(exclude=true)屏蔽方法<br>下一步操作是查看暴露接口的文件，访问<a href="http://localhost:8080/managementSystem/services/pageStatic?wsdl就可以查看" target="_blank" rel="external">http://localhost:8080/managementSystem/services/pageStatic?wsdl就可以查看</a></publishingcenter></p>
+<p><wsdl:definitions xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://dao.gjf.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PageStaticDaoService" targetnamespace="http://dao.gjf.com/"></wsdl:definitions></p>
+<p><wsdl:types></wsdl:types></p>
+<p><xs:schema xmlns:tns="http://dao.gjf.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementformdefault="unqualified" targetnamespace="http://dao.gjf.com/" version="1.0"></xs:schema></p>
+<p><xs:element name="toCenterIntroDetail" type="tns:toCenterIntroDetail"></xs:element></p>
+<p><xs:element name="toCenterIntroDetailResponse" type="tns:toCenterIntroDetailResponse"></xs:element></p>
+<p><xs:element name="toIndex" type="tns:toIndex"></xs:element></p>
+<p><xs:element name="toIndexResponse" type="tns:toIndexResponse"></xs:element></p>
+<p><xs:element name="toList" type="tns:toList"></xs:element></p>
+<p><xs:element name="toListResponse" type="tns:toListResponse"></xs:element></p>
+<p><xs:complextype name="toIndex"></xs:complextype></p>
+<p><xs:sequence><br></xs:sequence></p>
+<p><xs:complextype name="toIndexResponse"></xs:complextype></p>
+<p><xs:sequence></xs:sequence></p>
+<p><xs:element minoccurs="0" name="return" type="tns:data"><br><br></xs:element></p>
+<p><xs:complextype name="data"></xs:complextype></p>
+<p><xs:sequence></xs:sequence></p>
+<p><xs:element maxoccurs="unbounded" minoccurs="0" name="list" nillable="true" type="tns:entry"><br><br></xs:element></p>
+<p><xs:complextype name="entry"></xs:complextype></p>
+<p><xs:sequence></xs:sequence></p>
+<p><xs:element minoccurs="0" name="key" type="xs:string"></xs:element></p>
+<p><xs:element minoccurs="0" name="value" type="xs:anyType"><br><br></xs:element></p>
+<p><xs:complextype name="toCenterIntroDetail"><br>………….</xs:complextype></p>
+<p>可以用cxf工具生成客户端代码，也可以用jdk自带工作生成，我用的是jdk，因为简单。<br>操作步骤:<br>1.新建一个文件夹<br>2.dos 命令进入这个文件夹<br>3.执行 wsdl2java <a href="http://localhost:8080/managementSystem/services/pageStatic?wsdl" target="_blank" rel="external">http://localhost:8080/managementSystem/services/pageStatic?wsdl</a><br>4.在这个文件夹就会生成客户端代码<br>5.放到你的项目中，按照wsdl规范调用接口。</p>
+<p>将数据库信息导入到模板的方法:<br>import java.io.BufferedWriter;<br>import java.io.File;<br>import java.io.FileOutputStream;<br>import java.io.OutputStreamWriter;<br>import java.io.Writer;<br>import java.util.Map;<br>import freemarker.template.Configuration;<br>import freemarker.template.Template;<br>public class freeMarkUtil {<br>    /**</p>
+<pre><code> * @param ftlName：模板名
+ * @param fileName：生成的html名字
+ * @param map 数据库中的数据
+ * @throws Exception
+ */
+public void ouputFile(String ftlName, String fileName, Map map) throws Exception{
+    //创建fm的配置
+    Configuration config = new Configuration();
+    //指定默认编码格式
+    config.setDefaultEncoding(&quot;UTF-8&quot;);
+    //设置模板的包路径
+    config.setClassForTemplateLoading(this.getClass(), &quot;/com/gjf/ftl&quot;);
+    //获得包的模板
+    Template template = config.getTemplate(ftlName);
+    //指定文件输出的路径
+    String path = &quot;D:/a&quot;;
+    //定义输出流，注意的必须指定编码
+    Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(path+&quot;/&quot;+fileName)),&quot;UTF-8&quot;));
+    //生成模板
+    template.process(map, writer);
+}
+</code></pre><p>}</p>
+<p>将生成的html存放到一个文件夹，就可以访问了。</p>
+
       
 
       
@@ -238,7 +362,7 @@ Service- 相关服务访问点的集合。
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">webservr</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">webservice</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -379,7 +503,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">webservr</a>
+                <a href="javascript:void(0)" class="js-tag color1">webservice</a>
               </li>
              
               <li class="article-tag-list-item">
