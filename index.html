@@ -170,68 +170,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-a" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/01/a/">a</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/01/a/" class="archive-article-date">
-  	<time datetime="2017-08-01T05:22:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/01/a/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-my-first-blog_page_static" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -296,14 +234,37 @@ wsdl2java –d . http://127.0.0.1:6666/helloworld?wsdl
 
 配置spring+cxf：
  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-</code></pre><beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:cxf="http://cxf.apache.org/core" xsi:schemalocation="http://www.springframework.org/schema/beans 
-          http://www.springframework.org/schema/beans/spring-beans.xsd
-            http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
-            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
-            http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd"><br>    <!-- 引入CXF Bean定义如下,早期的版本中使用 --><br>    <import resource="classpath:META-INF/cxf/cxf.xml"><br>    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"><br>    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"><br><br>    <!--address是访问地址  serviceClass调用接口 --><br>    <jaxws:server id="pageStatic" address="/pageStatic" serviceclass="com.gjf.dao.PageStaticDao"><br>    <!--     服务接口的实现类 --><br>        <jaxws:servicebean><br>            <bean class="com.gjf.dao.PageStaticDaoImpl"></bean><br>        </jaxws:servicebean><br>        <jaxws:ininterceptors><br>            <bean class="org.apache.cxf.interceptor.LoggingInInterceptor"></bean><br>        </jaxws:ininterceptors><br>        <jaxws:outinterceptors><br>            <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"></bean><br>        </jaxws:outinterceptors><br>    </jaxws:server><br></import></import></import></beans>
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:jaxws=&quot;http://cxf.apache.org/jaxws&quot;
+xmlns:jaxrs=&quot;http://cxf.apache.org/jaxrs&quot; xmlns:cxf=&quot;http://cxf.apache.org/core&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans 
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+        http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+        http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd&quot;&gt;
+&lt;!-- 引入CXF Bean定义如下,早期的版本中使用 --&gt;
+&lt;import resource=&quot;classpath:META-INF/cxf/cxf.xml&quot; /&gt;
+&lt;import resource=&quot;classpath:META-INF/cxf/cxf-extension-soap.xml&quot; /&gt;
+&lt;import resource=&quot;classpath:META-INF/cxf/cxf-servlet.xml&quot; /&gt;
 
-<p>web.xml配置文件：</p>
-<pre><code>   &lt;servlet&gt;
+&lt;!--address是访问地址  serviceClass调用接口 --&gt;
+&lt;jaxws:server id=&quot;pageStatic&quot; address=&quot;/pageStatic&quot; serviceClass=&quot;com.gjf.dao.PageStaticDao&quot;&gt;
+&lt;!--     服务接口的实现类 --&gt;
+    &lt;jaxws:serviceBean&gt;
+        &lt;bean class=&quot;com.gjf.dao.PageStaticDaoImpl&quot;&gt;&lt;/bean&gt;
+    &lt;/jaxws:serviceBean&gt;
+    &lt;jaxws:inInterceptors&gt;
+        &lt;bean class=&quot;org.apache.cxf.interceptor.LoggingInInterceptor&quot;&gt;&lt;/bean&gt;
+    &lt;/jaxws:inInterceptors&gt;
+    &lt;jaxws:outInterceptors&gt;
+        &lt;bean class=&quot;org.apache.cxf.interceptor.LoggingOutInterceptor&quot;&gt;&lt;/bean&gt;
+    &lt;/jaxws:outInterceptors&gt;
+&lt;/jaxws:server&gt;  
+&lt;/beans&gt;
+
+web.xml配置文件：
+
+   &lt;servlet&gt;
     &lt;servlet-name&gt;cxf&lt;/servlet-name&gt;
     &lt;servlet-class&gt;org.apache.cxf.transport.servlet.CXFServlet&lt;/servlet-class&gt;
 &lt;/servlet&gt;
@@ -312,30 +273,38 @@ wsdl2java –d . http://127.0.0.1:6666/helloworld?wsdl
     &lt;url-pattern&gt;/services/*&lt;/url-pattern&gt;
 &lt;/servlet-mapping&gt;
 </code></pre><p>对外调用接口：<br>@WebService<br>public interface PageStaticDao {<br>    public List<publishingcenter>  toDetail(int id);<br> }<br>    主要类有：<br>        a)@WebService － 它是一个注解，用在类上指定将此类发布成一个webservice服务.<br>        b)Endpoint – 此类为端点服务类，它的方法publish用于将一个已经添加了@WebService注解对象绑定到一个地址的端口上。Endpoint是jdk提供的一个专门用于发布服务的类，它的publish方法接收两个参数，一个是本地的服务地址，二是提供服务的类。它位于javax.xml.ws.*包中。<br>        static Endpoint.publish(String address, Object implementor) 在给定地址处针对指定的实现者对象创建并发布端点。stop方法用于停止服务。<br>        其他注意事项：<br>        1)给类添加上@WebService注解后，类中所有的非静态方法都将会对外公布。不支持静态方法，final方法。<br>        2)如果希望某个方法(非static,非final)不对外公开，可以在方法上添加@WebMethod(exclude=true)，阻止对外公开。<br>        3)如果一个类上，被添加了@WebService注解，则必须此类至少有一个可以公开的方法，否则将会启动失败。<br>        4)服务类中不能没有方法<br>        5)@WebMethod(exclude=true)屏蔽方法</publishingcenter></p>
-<p>下一步操作是查看暴露接口的文件，访问<a href="http://localhost:8080/managementSystem/services/pageStatic?wsdl就可以查看" target="_blank" rel="external">http://localhost:8080/managementSystem/services/pageStatic?wsdl就可以查看</a></p>
-<p><wsdl:definitions xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://dao.gjf.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PageStaticDaoService" targetnamespace="http://dao.gjf.com/"></wsdl:definitions></p>
-<p><wsdl:types></wsdl:types></p>
-<p><xs:schema xmlns:tns="http://dao.gjf.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementformdefault="unqualified" targetnamespace="http://dao.gjf.com/" version="1.0"></xs:schema></p>
-<p><xs:element name="toCenterIntroDetail" type="tns:toCenterIntroDetail"></xs:element></p>
-<p><xs:element name="toCenterIntroDetailResponse" type="tns:toCenterIntroDetailResponse"></xs:element></p>
-<p><xs:element name="toIndex" type="tns:toIndex"></xs:element></p>
-<p><xs:element name="toIndexResponse" type="tns:toIndexResponse"></xs:element></p>
-<p><xs:element name="toList" type="tns:toList"></xs:element></p>
-<p><xs:element name="toListResponse" type="tns:toListResponse"></xs:element></p>
-<p><xs:complextype name="toIndex"></xs:complextype></p>
-<p><xs:sequence><br></xs:sequence></p>
-<p><xs:complextype name="toIndexResponse"></xs:complextype></p>
-<p><xs:sequence></xs:sequence></p>
-<p><xs:element minoccurs="0" name="return" type="tns:data"><br><br></xs:element></p>
-<p><xs:complextype name="data"></xs:complextype></p>
-<p><xs:sequence></xs:sequence></p>
-<p><xs:element maxoccurs="unbounded" minoccurs="0" name="list" nillable="true" type="tns:entry"><br><br></xs:element></p>
-<p><xs:complextype name="entry"></xs:complextype></p>
-<p><xs:sequence></xs:sequence></p>
-<p><xs:element minoccurs="0" name="key" type="xs:string"></xs:element></p>
-<p><xs:element minoccurs="0" name="value" type="xs:anyType"><br><br></xs:element></p>
-<p><xs:complextype name="toCenterIntroDetail"><br>………….</xs:complextype></p>
-<p>可以用cxf工具生成客户端代码，也可以用jdk自带工作生成，我用的是jdk，因为简单。<br>操作步骤:<br>1.新建一个文件夹<br>2.dos 命令进入这个文件夹<br>3.执行 wsdl2java <a href="http://localhost:8080/managementSystem/services/pageStatic?wsdl" target="_blank" rel="external">http://localhost:8080/managementSystem/services/pageStatic?wsdl</a><br>4.在这个文件夹就会生成客户端代码<br>5.放到你的项目中，按照wsdl规范调用接口。</p>
+<pre><code>下一步操作是查看暴露接口的文件，访问http://localhost:8080/managementSystem/services/pageStatic?wsdl就可以查看
+&lt;wsdl:definitions xmlns:ns1=&quot;http://schemas.xmlsoap.org/soap/http&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://dao.gjf.com/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; name=&quot;PageStaticDaoService&quot; targetNamespace=&quot;http://dao.gjf.com/&quot;&gt;
+&lt;wsdl:types&gt;
+&lt;xs:schema xmlns:tns=&quot;http://dao.gjf.com/&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;unqualified&quot; targetNamespace=&quot;http://dao.gjf.com/&quot; version=&quot;1.0&quot;&gt;
+&lt;xs:element name=&quot;toCenterIntroDetail&quot; type=&quot;tns:toCenterIntroDetail&quot;/&gt;
+&lt;xs:element name=&quot;toCenterIntroDetailResponse&quot; type=&quot;tns:toCenterIntroDetailResponse&quot;/&gt;
+&lt;xs:element name=&quot;toIndex&quot; type=&quot;tns:toIndex&quot;/&gt;
+&lt;xs:element name=&quot;toIndexResponse&quot; type=&quot;tns:toIndexResponse&quot;/&gt;
+&lt;xs:element name=&quot;toList&quot; type=&quot;tns:toList&quot;/&gt;
+&lt;xs:element name=&quot;toListResponse&quot; type=&quot;tns:toListResponse&quot;/&gt;
+&lt;xs:complexType name=&quot;toIndex&quot;&gt;
+&lt;xs:sequence/&gt;
+&lt;/xs:complexType&gt;
+&lt;xs:complexType name=&quot;toIndexResponse&quot;&gt;
+&lt;xs:sequence&gt;
+&lt;xs:element minOccurs=&quot;0&quot; name=&quot;return&quot; type=&quot;tns:data&quot;/&gt;
+&lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;
+&lt;xs:complexType name=&quot;data&quot;&gt;
+&lt;xs:sequence&gt;
+&lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;list&quot; nillable=&quot;true&quot; type=&quot;tns:entry&quot;/&gt;
+&lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;
+&lt;xs:complexType name=&quot;entry&quot;&gt;
+&lt;xs:sequence&gt;
+&lt;xs:element minOccurs=&quot;0&quot; name=&quot;key&quot; type=&quot;xs:string&quot;/&gt;
+&lt;xs:element minOccurs=&quot;0&quot; name=&quot;value&quot; type=&quot;xs:anyType&quot;/&gt;
+&lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;
+&lt;xs:complexType name=&quot;toCenterIntroDetail&quot;&gt;
+.............
+</code></pre><p>可以用cxf工具生成客户端代码，也可以用jdk自带工作生成，我用的是jdk，因为简单。<br>操作步骤:<br>1.新建一个文件夹<br>2.dos 命令进入这个文件夹<br>3.执行 wsdl2java <a href="http://localhost:8080/managementSystem/services/pageStatic?wsdl" target="_blank" rel="external">http://localhost:8080/managementSystem/services/pageStatic?wsdl</a><br>4.在这个文件夹就会生成客户端代码<br>5.放到你的项目中，按照wsdl规范调用接口。</p>
 <p>将数据库信息导入到模板的方法:<br>import java.io.BufferedWriter;<br>import java.io.File;<br>import java.io.FileOutputStream;<br>import java.io.OutputStreamWriter;<br>import java.io.Writer;<br>import java.util.Map;<br>import freemarker.template.Configuration;<br>import freemarker.template.Template;<br>public class freeMarkUtil {<br>    /**</p>
 <pre><code> * @param ftlName：模板名
  * @param fileName：生成的html名字
@@ -358,10 +327,8 @@ public void ouputFile(String ftlName, String fileName, Map map) throws Exception
     //生成模板
     template.process(map, writer);
 }
-</code></pre><p>}</p>
-<p>将生成的html存放到一个文件夹，就可以访问了。</p>
-<pre><code>小结：我认为webservice实现的功能是主要是跨平台的数据传输，将服务端的功能代码片段生成客户端的代码，直接在客户端进行调用，在页面静态化的功能中，webservice起到的作用是直接在前端服务器接受服务端的数据，结合前端服务器中的页面模板生成静态页面。
-</code></pre>
+</code></pre><p>}<br>            将生成的html存放到一个文件夹，就可以访问了。<br>    小结：我认为webservice实现的功能是主要是跨平台的数据传输，将服务端的功能代码片段生成客户端的代码，直接在客户端进行调用，在页面静态化的功能中，webservice起到的作用是直接在前端服务器接受服务端的数据，结合前端服务器中的页面模板生成静态页面。</p>
+
       
 
       
