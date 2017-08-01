@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>webservice+freemark实现页面静态化 | 江东帆影~博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下：     1.webservice    理解如下：        WebService顾名思义就是基于Web的服">
+  <meta name="description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下： ##1.webservice 理解如下：     WebService顾名思义就是基于Web的服务。它使用HTT">
 <meta name="keywords" content="webservice,xml,http">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webservice+freemark实现页面静态化">
 <meta property="og:url" content="http://yoursite.com/2017/07/28/my-first-blog_page_static/index.html">
 <meta property="og:site_name" content="江东帆影~博客">
-<meta property="og:description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下：     1.webservice    理解如下：        WebService顾名思义就是基于Web的服">
+<meta property="og:description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下： ##1.webservice 理解如下：     WebService顾名思义就是基于Web的服务。它使用HTT">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-01T14:07:48.539Z">
+<meta property="og:updated_time" content="2017-08-01T14:21:16.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webservice+freemark实现页面静态化">
-<meta name="twitter:description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下：     1.webservice    理解如下：        WebService顾名思义就是基于Web的服">
+<meta name="twitter:description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下： ##1.webservice 理解如下：     WebService顾名思义就是基于Web的服务。它使用HTT">
   
     <link rel="alternative" href="/atom.xml" title="江东帆影~博客" type="application/atom+xml">
   
@@ -195,9 +195,33 @@
       
         <pre><code>小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。
 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下：
-</code></pre><p>   <font size="4"> 1.webservice</font><br>    理解如下：<br>        WebService顾名思义就是基于Web的服务。它使用HTTP+XML方式，接收和响应外部系统的某种请求。从而实现远程调用。例如我们手机app查询天气，以及打电话手机显示号码归属地，都是调用其他系统的一些信息。<br>    名词：WSDL – WebService Description Language – Web服务描述语言。<br>        通过XML形式说明服务在什么地方－地址。<br>        通过XML形式说明服务提供什么样的方法 – 如何调用。<br>    名词：SOAP-Simple Object Access Protocol(简单对象访问协议)<br>        SOAP作为一个基于XML语言的协议用于有网上传输数据。<br>        SOAP = 在HTTP的基础上+XML数据。<br>        SOAP是基于HTTP的。<br>    SOAP的组成如下：<br>        Envelope – 必须的部分。以XML的根元素出现。<br>        Headers – 可选的。<br>        Body – 必须的。在body部分，包含要执行的服务器的方法。和发送到服务器的数据。<br>    2.WSDL解析（摘抄任亮老师，感觉解读的不错）<br>        Wsdl文档从下往上读<br>        Types - 数据类型定义的容器，它使用某种类型系统(一般地使用XML Schema中的类型系统)。（入参和出参的数据类型）<br>         Message - 通信消息的数据结构的抽象类型化定义。使用Types所定义的类型来定义整个消息的数据结构（入参和出参）。<br>         Operation - 对服务中所支持的操作的抽象描述，一般单个Operation描述了一个访问入口的请求/响应消息对（方法）。<br>         PortType - 对于某个访问入口点类型所支持的操作的抽象集合，这些操作可以由一个或多个服务访问点来支持（服务类）。<br>        Binding - 特定服务访问点与具体服务类的绑定（不看内容，看关系）。<br>        Port - 定义为webservice单个服务访问点。</p>
-<pre><code>3.FreeMark标签自己去查。
-4.wsdl2java
+##1.webservice
+理解如下：
+    WebService顾名思义就是基于Web的服务。它使用HTTP+XML方式，接收和响应外部系统的某种请求。从而实现远程调用。例如我们手机app查询天气，以及打电话手机显示号码归属地，都是调用其他系统的一些信息。
+名词：WSDL – WebService Description Language – Web服务描述语言。
+    通过XML形式说明服务在什么地方－地址。
+    通过XML形式说明服务提供什么样的方法 – 如何调用。
+名词：SOAP-Simple Object Access Protocol(简单对象访问协议)
+    SOAP作为一个基于XML语言的协议用于有网上传输数据。
+    SOAP = 在HTTP的基础上+XML数据。
+    SOAP是基于HTTP的。
+SOAP的组成如下：
+    Envelope – 必须的部分。以XML的根元素出现。
+    Headers – 可选的。
+    Body – 必须的。在body部分，包含要执行的服务器的方法。和发送到服务器的数据。
+##2.WSDL解析（摘抄任亮老师，感觉解读的不错）
+    Wsdl文档从下往上读
+    Types - 数据类型定义的容器，它使用某种类型系统(一般地使用XML Schema中的类型系统)。（入参和出参的数据类型） 
+     Message - 通信消息的数据结构的抽象类型化定义。使用Types所定义的类型来定义整个消息的数据结构（入参和出参）。 
+     Operation - 对服务中所支持的操作的抽象描述，一般单个Operation描述了一个访问入口的请求/响应消息对（方法）。 
+     PortType - 对于某个访问入口点类型所支持的操作的抽象集合，这些操作可以由一个或多个服务访问点来支持（服务类）。 
+    Binding - 特定服务访问点与具体服务类的绑定（不看内容，看关系）。 
+    Port - 定义为webservice单个服务访问点。
+
+
+
+##3.FreeMark标签自己去查。
+##4.wsdl2java
 在cxf中，也提供了一个用于生成客户端调用代码的工具。它的功能就如同wsimport一样。
 先让我们了解一下cxf的wsdl2java工具，可以生成一堆客户端调用的代码。既可以生成SOAP1.1也可以生成SOAP1.2
 此工具位于cxf_home/bin目录下。参数与wsimport有所不同。
@@ -210,7 +234,7 @@ b)－p参数，指定生成的新的包结构。
 在命令行执行：
 wsdl2java –d . http://127.0.0.1:6666/helloworld?wsdl
 
-配置spring+cxf：
+##配置spring+cxf：
  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
 xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:jaxws=&quot;http://cxf.apache.org/jaxws&quot;
@@ -240,7 +264,7 @@ xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
 &lt;/jaxws:server&gt;  
 &lt;/beans&gt;
 
-web.xml配置文件：
+##web.xml配置文件：
 
    &lt;servlet&gt;
     &lt;servlet-name&gt;cxf&lt;/servlet-name&gt;
@@ -250,40 +274,53 @@ web.xml配置文件：
     &lt;servlet-name&gt;cxf&lt;/servlet-name&gt;
     &lt;url-pattern&gt;/services/*&lt;/url-pattern&gt;
 &lt;/servlet-mapping&gt;
-</code></pre><p>对外调用接口：<br>@WebService<br>public interface PageStaticDao {<br>    public List<publishingcenter>  toDetail(int id);<br> }<br>    主要类有：<br>        a)@WebService － 它是一个注解，用在类上指定将此类发布成一个webservice服务.<br>        b)Endpoint – 此类为端点服务类，它的方法publish用于将一个已经添加了@WebService注解对象绑定到一个地址的端口上。Endpoint是jdk提供的一个专门用于发布服务的类，它的publish方法接收两个参数，一个是本地的服务地址，二是提供服务的类。它位于javax.xml.ws.*包中。<br>        static Endpoint.publish(String address, Object implementor) 在给定地址处针对指定的实现者对象创建并发布端点。stop方法用于停止服务。<br>        其他注意事项：<br>        1)给类添加上@WebService注解后，类中所有的非静态方法都将会对外公布。不支持静态方法，final方法。<br>        2)如果希望某个方法(非static,非final)不对外公开，可以在方法上添加@WebMethod(exclude=true)，阻止对外公开。<br>        3)如果一个类上，被添加了@WebService注解，则必须此类至少有一个可以公开的方法，否则将会启动失败。<br>        4)服务类中不能没有方法<br>        5)@WebMethod(exclude=true)屏蔽方法</publishingcenter></p>
-<pre><code>下一步操作是查看暴露接口的文件，访问http://localhost:8080/managementSystem/services/pageStatic?wsdl就可以查看
-&lt;wsdl:definitions xmlns:ns1=&quot;http://schemas.xmlsoap.org/soap/http&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://dao.gjf.com/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; name=&quot;PageStaticDaoService&quot; targetNamespace=&quot;http://dao.gjf.com/&quot;&gt;
-&lt;wsdl:types&gt;
-&lt;xs:schema xmlns:tns=&quot;http://dao.gjf.com/&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;unqualified&quot; targetNamespace=&quot;http://dao.gjf.com/&quot; version=&quot;1.0&quot;&gt;
-&lt;xs:element name=&quot;toCenterIntroDetail&quot; type=&quot;tns:toCenterIntroDetail&quot;/&gt;
-&lt;xs:element name=&quot;toCenterIntroDetailResponse&quot; type=&quot;tns:toCenterIntroDetailResponse&quot;/&gt;
-&lt;xs:element name=&quot;toIndex&quot; type=&quot;tns:toIndex&quot;/&gt;
-&lt;xs:element name=&quot;toIndexResponse&quot; type=&quot;tns:toIndexResponse&quot;/&gt;
-&lt;xs:element name=&quot;toList&quot; type=&quot;tns:toList&quot;/&gt;
-&lt;xs:element name=&quot;toListResponse&quot; type=&quot;tns:toListResponse&quot;/&gt;
-&lt;xs:complexType name=&quot;toIndex&quot;&gt;
-&lt;xs:sequence/&gt;
-&lt;/xs:complexType&gt;
-&lt;xs:complexType name=&quot;toIndexResponse&quot;&gt;
-&lt;xs:sequence&gt;
-&lt;xs:element minOccurs=&quot;0&quot; name=&quot;return&quot; type=&quot;tns:data&quot;/&gt;
-&lt;/xs:sequence&gt;
-&lt;/xs:complexType&gt;
-&lt;xs:complexType name=&quot;data&quot;&gt;
-&lt;xs:sequence&gt;
-&lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;list&quot; nillable=&quot;true&quot; type=&quot;tns:entry&quot;/&gt;
-&lt;/xs:sequence&gt;
-&lt;/xs:complexType&gt;
-&lt;xs:complexType name=&quot;entry&quot;&gt;
-&lt;xs:sequence&gt;
-&lt;xs:element minOccurs=&quot;0&quot; name=&quot;key&quot; type=&quot;xs:string&quot;/&gt;
-&lt;xs:element minOccurs=&quot;0&quot; name=&quot;value&quot; type=&quot;xs:anyType&quot;/&gt;
-&lt;/xs:sequence&gt;
-&lt;/xs:complexType&gt;
-&lt;xs:complexType name=&quot;toCenterIntroDetail&quot;&gt;
-.............
-</code></pre><p>可以用cxf工具生成客户端代码，也可以用jdk自带工作生成，我用的是jdk，因为简单。<br>操作步骤:<br>1.新建一个文件夹<br>2.dos 命令进入这个文件夹<br>3.执行 wsdl2java <a href="http://localhost:8080/managementSystem/services/pageStatic?wsdl" target="_blank" rel="external">http://localhost:8080/managementSystem/services/pageStatic?wsdl</a><br>4.在这个文件夹就会生成客户端代码<br>5.放到你的项目中，按照wsdl规范调用接口。</p>
-<p>将数据库信息导入到模板的方法:<br>import java.io.BufferedWriter;<br>import java.io.File;<br>import java.io.FileOutputStream;<br>import java.io.OutputStreamWriter;<br>import java.io.Writer;<br>import java.util.Map;<br>import freemarker.template.Configuration;<br>import freemarker.template.Template;<br>public class freeMarkUtil {<br>    /**</p>
+</code></pre><p>##对外调用接口：<br>@WebService<br>public interface PageStaticDao {<br>    public List<publishingcenter>  toDetail(int id);<br> }</publishingcenter></p>
+<pre><code>##主要类有：
+    a)@WebService － 它是一个注解，用在类上指定将此类发布成一个webservice服务.
+    b)Endpoint – 此类为端点服务类，它的方法publish用于将一个已经添加了@WebService注解对象绑定到一个地址的端口上。Endpoint是jdk提供的一个专门用于发布服务的类，它的publish方法接收两个参数，一个是本地的服务地址，二是提供服务的类。它位于javax.xml.ws.*包中。
+    static Endpoint.publish(String address, Object implementor) 在给定地址处针对指定的实现者对象创建并发布端点。stop方法用于停止服务。
+    其他注意事项：
+    1)给类添加上@WebService注解后，类中所有的非静态方法都将会对外公布。不支持静态方法，final方法。
+    2)如果希望某个方法(非static,非final)不对外公开，可以在方法上添加@WebMethod(exclude=true)，阻止对外公开。
+    3)如果一个类上，被添加了@WebService注解，则必须此类至少有一个可以公开的方法，否则将会启动失败。
+    4)服务类中不能没有方法
+    5)@WebMethod(exclude=true)屏蔽方法
+
+    ##下一步操作是查看暴露接口的文件，访问http://localhost:8080/managementSystem/services/pageStatic?wsdl就可以查看
+
+    &lt;wsdl:definitions xmlns:ns1=&quot;http://schemas.xmlsoap.org/soap/http&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://dao.gjf.com/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; name=&quot;PageStaticDaoService&quot; targetNamespace=&quot;http://dao.gjf.com/&quot;&gt;
+    &lt;wsdl:types&gt;
+    &lt;xs:schema xmlns:tns=&quot;http://dao.gjf.com/&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;unqualified&quot; targetNamespace=&quot;http://dao.gjf.com/&quot; version=&quot;1.0&quot;&gt;
+    &lt;xs:element name=&quot;toCenterIntroDetail&quot; type=&quot;tns:toCenterIntroDetail&quot;/&gt;
+    &lt;xs:element name=&quot;toCenterIntroDetailResponse&quot; type=&quot;tns:toCenterIntroDetailResponse&quot;/&gt;
+    &lt;xs:element name=&quot;toIndex&quot; type=&quot;tns:toIndex&quot;/&gt;
+    &lt;xs:element name=&quot;toIndexResponse&quot; type=&quot;tns:toIndexResponse&quot;/&gt;
+    &lt;xs:element name=&quot;toList&quot; type=&quot;tns:toList&quot;/&gt;
+    &lt;xs:element name=&quot;toListResponse&quot; type=&quot;tns:toListResponse&quot;/&gt;
+    &lt;xs:complexType name=&quot;toIndex&quot;&gt;
+    &lt;xs:sequence/&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;toIndexResponse&quot;&gt;
+    &lt;xs:sequence&gt;
+    &lt;xs:element minOccurs=&quot;0&quot; name=&quot;return&quot; type=&quot;tns:data&quot;/&gt;
+    &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;data&quot;&gt;
+    &lt;xs:sequence&gt;
+    &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;list&quot; nillable=&quot;true&quot; type=&quot;tns:entry&quot;/&gt;
+    &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;entry&quot;&gt;
+    &lt;xs:sequence&gt;
+    &lt;xs:element minOccurs=&quot;0&quot; name=&quot;key&quot; type=&quot;xs:string&quot;/&gt;
+    &lt;xs:element minOccurs=&quot;0&quot; name=&quot;value&quot; type=&quot;xs:anyType&quot;/&gt;
+    &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:complexType name=&quot;toCenterIntroDetail&quot;&gt;
+    .............
+</code></pre><p>可以用cxf工具生成客户端代码，也可以用jdk自带工作生成，我用的是jdk，因为简单。</p>
+<p>##操作步骤:<br>1.新建一个文件夹<br>2.dos 命令进入这个文件夹<br>3.执行 wsdl2java <a href="http://localhost:8080/managementSystem/services/pageStatic?wsdl" target="_blank" rel="external">http://localhost:8080/managementSystem/services/pageStatic?wsdl</a><br>4.在这个文件夹就会生成客户端代码<br>5.放到你的项目中，按照wsdl规范调用接口。</p>
+<p>##将数据库信息导入到模板的方法:<br>import java.io.BufferedWriter;<br>import java.io.File;<br>import java.io.FileOutputStream;<br>import java.io.OutputStreamWriter;<br>import java.io.Writer;<br>import java.util.Map;<br>import freemarker.template.Configuration;<br>import freemarker.template.Template;<br>public class freeMarkUtil {<br>    /**</p>
 <pre><code> * @param ftlName：模板名
  * @param fileName：生成的html名字
  * @param map 数据库中的数据
@@ -305,8 +342,10 @@ public void ouputFile(String ftlName, String fileName, Map map) throws Exception
     //生成模板
     template.process(map, writer);
 }
-</code></pre><p>}<br>            将生成的html存放到一个文件夹，就可以访问了。<br>    小结：我认为webservice实现的功能是主要是跨平台的数据传输，将服务端的功能代码片段生成客户端的代码，直接在客户端进行调用，在页面静态化的功能中，webservice起到的作用是直接在前端服务器接受服务端的数据，结合前端服务器中的页面模板生成静态页面。<br>        未完待续……</p>
-
+</code></pre><p>}<br>            将生成的html存放到一个文件夹，就可以访问了。</p>
+<pre><code>##小结：我认为webservice实现的功能是主要是跨平台的数据传输，将服务端的功能代码片段生成客户端的代码，直接在客户端进行调用，在页面静态化的功能中，webservice起到的作用是直接在前端服务器接受服务端的数据，结合前端服务器中的页面模板生成静态页面。
+    未完待续......
+</code></pre>
       
 
       
