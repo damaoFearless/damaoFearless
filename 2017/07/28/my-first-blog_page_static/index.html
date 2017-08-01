@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>webservice+freemark实现页面静态化 | 江东帆影~博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下： &amp;lt;font color=&amp;quot;red&amp;quot;&amp;gt;1.webservice&amp;lt;/font&amp;">
+  <meta name="description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下：     1.webservice    理解如下：        WebService顾名思义就是基于Web的服">
 <meta name="keywords" content="webservice,xml,http">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webservice+freemark实现页面静态化">
 <meta property="og:url" content="http://yoursite.com/2017/07/28/my-first-blog_page_static/index.html">
 <meta property="og:site_name" content="江东帆影~博客">
-<meta property="og:description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下： &amp;lt;font color=&amp;quot;red&amp;quot;&amp;gt;1.webservice&amp;lt;/font&amp;">
+<meta property="og:description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下：     1.webservice    理解如下：        WebService顾名思义就是基于Web的服">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-01T14:05:14.304Z">
+<meta property="og:updated_time" content="2017-08-01T14:07:48.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webservice+freemark实现页面静态化">
-<meta name="twitter:description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下： &amp;lt;font color=&amp;quot;red&amp;quot;&amp;gt;1.webservice&amp;lt;/font&amp;">
+<meta name="twitter:description" content="小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下：     1.webservice    理解如下：        WebService顾名思义就是基于Web的服">
   
     <link rel="alternative" href="/atom.xml" title="江东帆影~博客" type="application/atom+xml">
   
@@ -195,32 +195,8 @@
       
         <pre><code>小伙伴们好，第一次写博客，哪方面需要修改请提出宝贵的建议，感觉上学这么多年，最有用的科目就是语文了，很遗憾，我语文并不好。
 页面静态化这个概念是在本科毕业前夕接触到的，最近有时间就简单的了解了一下，接触到的知识点主要有WebService，WSDL解析,FreeMark三个。总结如下：
-&lt;font color=&quot;red&quot;&gt;1.webservice&lt;/font&gt;
-理解如下：
-    WebService顾名思义就是基于Web的服务。它使用HTTP+XML方式，接收和响应外部系统的某种请求。从而实现远程调用。例如我们手机app查询天气，以及打电话手机显示号码归属地，都是调用其他系统的一些信息。
-名词：WSDL – WebService Description Language – Web服务描述语言。
-    通过XML形式说明服务在什么地方－地址。
-    通过XML形式说明服务提供什么样的方法 – 如何调用。
-名词：SOAP-Simple Object Access Protocol(简单对象访问协议)
-    SOAP作为一个基于XML语言的协议用于有网上传输数据。
-    SOAP = 在HTTP的基础上+XML数据。
-    SOAP是基于HTTP的。
-SOAP的组成如下：
-    Envelope – 必须的部分。以XML的根元素出现。
-    Headers – 可选的。
-    Body – 必须的。在body部分，包含要执行的服务器的方法。和发送到服务器的数据。
-2.WSDL解析（摘抄任亮老师，感觉解读的不错）
-    Wsdl文档从下往上读
-    Types - 数据类型定义的容器，它使用某种类型系统(一般地使用XML Schema中的类型系统)。（入参和出参的数据类型） 
-     Message - 通信消息的数据结构的抽象类型化定义。使用Types所定义的类型来定义整个消息的数据结构（入参和出参）。 
-     Operation - 对服务中所支持的操作的抽象描述，一般单个Operation描述了一个访问入口的请求/响应消息对（方法）。 
-     PortType - 对于某个访问入口点类型所支持的操作的抽象集合，这些操作可以由一个或多个服务访问点来支持（服务类）。 
-    Binding - 特定服务访问点与具体服务类的绑定（不看内容，看关系）。 
-    Port - 定义为webservice单个服务访问点。
-
-
-
-3.FreeMark标签自己去查。
+</code></pre><p>   <font size="4"> 1.webservice</font><br>    理解如下：<br>        WebService顾名思义就是基于Web的服务。它使用HTTP+XML方式，接收和响应外部系统的某种请求。从而实现远程调用。例如我们手机app查询天气，以及打电话手机显示号码归属地，都是调用其他系统的一些信息。<br>    名词：WSDL – WebService Description Language – Web服务描述语言。<br>        通过XML形式说明服务在什么地方－地址。<br>        通过XML形式说明服务提供什么样的方法 – 如何调用。<br>    名词：SOAP-Simple Object Access Protocol(简单对象访问协议)<br>        SOAP作为一个基于XML语言的协议用于有网上传输数据。<br>        SOAP = 在HTTP的基础上+XML数据。<br>        SOAP是基于HTTP的。<br>    SOAP的组成如下：<br>        Envelope – 必须的部分。以XML的根元素出现。<br>        Headers – 可选的。<br>        Body – 必须的。在body部分，包含要执行的服务器的方法。和发送到服务器的数据。<br>    2.WSDL解析（摘抄任亮老师，感觉解读的不错）<br>        Wsdl文档从下往上读<br>        Types - 数据类型定义的容器，它使用某种类型系统(一般地使用XML Schema中的类型系统)。（入参和出参的数据类型）<br>         Message - 通信消息的数据结构的抽象类型化定义。使用Types所定义的类型来定义整个消息的数据结构（入参和出参）。<br>         Operation - 对服务中所支持的操作的抽象描述，一般单个Operation描述了一个访问入口的请求/响应消息对（方法）。<br>         PortType - 对于某个访问入口点类型所支持的操作的抽象集合，这些操作可以由一个或多个服务访问点来支持（服务类）。<br>        Binding - 特定服务访问点与具体服务类的绑定（不看内容，看关系）。<br>        Port - 定义为webservice单个服务访问点。</p>
+<pre><code>3.FreeMark标签自己去查。
 4.wsdl2java
 在cxf中，也提供了一个用于生成客户端调用代码的工具。它的功能就如同wsimport一样。
 先让我们了解一下cxf的wsdl2java工具，可以生成一堆客户端调用的代码。既可以生成SOAP1.1也可以生成SOAP1.2
